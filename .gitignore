@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Environment variables - KHÔNG push lên GitHub!
+.env
+.env.*
+!.env.example

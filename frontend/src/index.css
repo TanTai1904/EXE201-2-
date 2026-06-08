@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-brand-light: #FFFFFF;
+  --color-brand-dark: #090D16;
+  --color-brand-teal: #0F62FE;
+  --color-brand-teallight: #3F83F8;
+  --color-brand-green: #00A389;
+  --color-brand-gold: #D97706;
+  --color-brand-graybg: #F3F4F6;
+  --font-sans: 'Inter', 'Outfit', sans-serif;
+}
+
+@utility glass-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.02);
+  transition: all 0.2s ease-in-out;
+}
+
+.dark .glass-card {
+  background: #0E1726;
+  border: 1px solid #1E293B;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5);
+  transition: all 0.2s ease-in-out;
+}
+
+@utility hover-scale {
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s ease-in-out;
+  &:hover {
+    transform: translateY(-2px) scale(1.005);
+  }
+}
+
+
+body {
+  @apply font-sans text-slate-900 bg-[#F4F6F8] transition-colors duration-300 antialiased;
+  font-family: 'Inter', sans-serif;
+  background-image: none;
+}
+
+body.dark {
+  @apply text-slate-100 bg-[#090D16];
+  background-image: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Outfit', sans-serif;
+}
+
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(37, 99, 235, 0.2);
+  border-radius: 9999px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(96, 165, 250, 0.15);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(37, 99, 235, 0.4);
+}
+
+/* Glassmorphism Styles remapped to sharp corporate trading layout */
+.glass-panel {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+  transition: all 0.2s ease-in-out;
+}
+
+.glass-panel:hover {
+  border-color: #CBD5E1;
+  box-shadow: 0 4px 12px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+}
+
+.dark .glass-panel {
+  background: #0E1726;
+  border: 1px solid #1D283A;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5);
+}
+
+.dark .glass-panel:hover {
+  border-color: #334155;
+  box-shadow: 0 6px 24px -4px rgba(0, 0, 0, 0.6);
+}
+
+/* Card gradients */
+.gradient-card-teal {
+  background: linear-gradient(135deg, rgba(15, 98, 254, 0.04) 0%, rgba(63, 131, 248, 0.01) 100%);
+}
+
+.dark .gradient-card-teal {
+  background: linear-gradient(135deg, rgba(15, 98, 254, 0.1) 0%, rgba(63, 131, 248, 0.02) 100%);
+}
+
+/* Streak animation */
+@keyframes pulse-gold {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 4px rgba(245, 158, 11, 0.6));
+  }
+  50% {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 12px rgba(245, 158, 11, 0.9));
+  }
+}
+
+.streak-active {
+  animation: pulse-gold 2s infinite ease-in-out;
+}
+
+/* General Animations */
+.fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
